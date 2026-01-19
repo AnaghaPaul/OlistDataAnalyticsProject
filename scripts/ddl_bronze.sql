@@ -14,9 +14,9 @@ GO
 IF OBJECT_ID('bronze.customers','U')  IS NOT NULL
 	DROP TABLE bronze.customers;
 CREATE TABLE bronze.customers(
-	customer_id CHAR(32),
-	customer_unique_id CHAR(32),
-	customer_zip_code_prefix CHAR(5),
+	customer_id CHAR(50),
+	customer_unique_id CHAR(50),
+	customer_zip_code_prefix CHAR(10),
 	customer_city NVARCHAR(50),
 	customer_state NCHAR(2)--precisely two characters
 )
