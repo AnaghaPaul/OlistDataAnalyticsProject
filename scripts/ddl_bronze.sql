@@ -30,13 +30,12 @@ IF OBJECT_ID('bronze.geolocation','U') IS NOT NULL
 	DROP TABLE bronze.geolocation;
 
 CREATE TABLE bronze.geolocation(
-	geolocation_zip_code_prefix CHAR(5),
-	geolocation_lat DECIMAL(18,14),
-	geolocation_lng DECIMAL(18,14),
+	geolocation_zip_code_prefix VARCHAR(10),
+	geolocation_lat VARCHAR(50),
+	geolocation_lng VARCHAR(50),
 	geolocation_city NVARCHAR(50),
-	geolocation_state CHAR(2)
+	geolocation_state VARCHAR(5)
 )
-
 --olist_order_items_dataset.csv
 
 --order_items table
