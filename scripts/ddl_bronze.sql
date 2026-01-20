@@ -43,13 +43,13 @@ IF OBJECT_ID('bronze.order_items','U') IS NOT NULL
 	DROP TABLE bronze.order_items;
 
 CREATE TABLE bronze.order_items(
-order_id CHAR(32),
+order_id VARCHAR(50),
 order_item_id INT,
-product_id CHAR(32),
-seller_id CHAR(32),
+product_id VARCHAR(50),
+seller_id VARCHAR(50),
 shipping_limit_date DATETIME,
-price DECIMAL(10,2),
-freight_value DECIMAL(10,2)--shipping cost for an item in an order
+price VARCHAR(10),--decimal can be too strict
+freight_value VARCHAR(10) --shipping cost for an item in an order
 )
 
 -- olist_order_payments_dataset
