@@ -57,13 +57,13 @@ freight_value VARCHAR(10) --shipping cost for an item in an order
 IF OBJECT_ID('bronze.order_payments','U') IS NOT NULL
 	DROP TABLE bronze.order_payments;
 CREATE TABLE bronze.order_payments(
-	order_id CHAR(32),
+	order_id NVARCHAR(50),
 	payment_sequential INT,
 	payment_type VARCHAR(20),
 	payment_installments INT,
-	payment_value DECIMAL(10,2)
+	payment_value NVARCHAR(10)
 )
-
+	
 --olist_order_reviews_dataset.csv
 -- order_reviews table
 IF OBJECT_ID('bronze.order_reviews', 'U') IS NOT NULL
