@@ -4,21 +4,23 @@ DDL Script: Create Bronze Tables
 =====================================================================================================
 Purpose : This script creates 9 empty tables in bronze layer and drop the tables if they already exists. 
 This is the step before 'Full load' of data into the bronze layer
-Warning : The existing tables and data in it would be deleted when the script is executed.*/
+Warning : The existing tables and data in it would be deleted when the script is executed.
+Properties : The layer is designed to favour flexibity over storage to make data ingestion process easier and successfull.
+             The layer has most of the columns defined to accept varchar data and allocating a bit more storage than it is usually expected.
+             The layer has also has all place and comment columns defined to be nvarchar to conserve data accuracy and considering language aspects.*/
 USE Olist_DataWarehouse;
 GO
 --Creating Empty Tables
---olist_customers_dataset table --naming convention- customers<origin>
-
+--olist_customers_dataset table --naming convention- remove reduntant words like olist, dataset, keep only customers
 -- customers table
 IF OBJECT_ID('bronze.customers','U')  IS NOT NULL
 	DROP TABLE bronze.customers;
 CREATE TABLE bronze.customers(
-	customer_id CHAR(50),
-	customer_unique_id CHAR(50),
-	customer_zip_code_prefix CHAR(10),
+	customer_id VARCHAR(50),
+	customer_unique_id VARCHAR(50),
+	customer_zip_code_prefix VARCHAR(10),
 	customer_city NVARCHAR(50),
-	customer_state NCHAR(2)--precisely two characters
+	customer_state VARCHAR(5)
 )
 
 -- olist_geolocation_dataset.csv
